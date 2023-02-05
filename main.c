@@ -82,7 +82,7 @@ void screen(int **arr){
 int main(void)
 {   char input;
     int **arr = create();
-    arr[3][10] = 1; arr[3][11] = 1; arr[3][12] = 1; arr[2][12] = 1; arr[1][11] = 1;
+    arr[3][10] = 1; arr[3][11] = 1; arr[3][12] = 1; arr[2][12] = 1; arr[1][11] = 1; // GLIDER
     int **new_arr = create();
     while (input != 'q'){
         action(arr, new_arr);
