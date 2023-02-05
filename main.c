@@ -84,13 +84,38 @@ void screen(int **arr){
     }
 }
 
-int main(void)
+void take_start_position(int **start, int **arr){
+	for (int i = 0; i < ROW; i++){
+		for (int j = 0; j < COL; j++){
+			
+		}
+	}
+}
+
+void alive_structures(int **arr){
+	printf("Hellow dear user!\n You have access to 3 organismes\n input:\n 1 for GLIDER\n 2 for BUS\n 3 for KARAVAI\n");
+	int choice;
+	scanf("%d", &choice);
+	switch (choice){
+		case 1:
+			    arr[3][10] = 1; arr[3][11] = 1; arr[3][12] = 1; arr[2][12] = 1; arr[1][11] = 1; // GLIDER
+		case 2:
+			    arr[4][10] = 1; arr[5][11] = 1; arr[5][12] = 1; arr[5][13] = 1; arr[5][14] = 1; arr[4][14] = 1; arr[3][14] = 1; arr[2][13] = 1;  // bus
+		case 3:
+			   arr[9][40] = 1;arr[10][39] = 1;arr[10][41] = 1;arr[11][38] = 1;arr[11][41] = 1;arr[12][39] = 1;arr[12][40] = 1;
+    			   arr[13][38] = 1;arr[13][41] = 1;arr[14][38] = 1;arr[14][40] = 1;arr[15][39] = 1; // karavai
+    		default:
+    			   arr[9][40] = 1;arr[10][39] = 1;arr[10][41] = 1;arr[11][38] = 1;arr[11][41] = 1;arr[12][39] = 1;arr[12][40] = 1;
+    			   arr[13][38] = 1;arr[13][41] = 1;arr[14][38] = 1;arr[14][40] = 1;arr[15][39] = 1; // karavai
+    			   arr[3][10] = 1; arr[3][11] = 1; arr[3][12] = 1; arr[2][12] = 1; arr[1][11] = 1; // GLIDER
+	}
+		
+}
+
+int main(int argc, int **argv)
 {   char input;
     int **arr = create();
-    arr[3][10] = 1; arr[3][11] = 1; arr[3][12] = 1; arr[2][12] = 1; arr[1][11] = 1; // GLIDER
-    //arr[4][10] = 1; arr[5][11] = 1; arr[5][12] = 1; arr[5][13] = 1; arr[5][14] = 1; arr[4][14] = 1; arr[3][14] = 1; arr[2][13] = 1;  // bus
-    arr[9][40] = 1;arr[10][39] = 1;arr[10][41] = 1;arr[11][38] = 1;arr[11][41] = 1;arr[12][39] = 1;arr[12][40] = 1;
-    arr[13][38] = 1;arr[13][41] = 1;arr[14][38] = 1;arr[14][40] = 1;arr[15][39] = 1; // karavai
+    alive_structures(arr);
     int **new_arr = create();
     stdscr = initscr();
     while (input != 'q'){
