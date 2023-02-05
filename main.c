@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ncurses.h>
-#define ROW 25
+#define ROW 20
 #define COL 80
+#define SPEED 100
 
 int **create(void){
     int **arr = malloc(ROW * COL * sizeof(int) + ROW * sizeof(int*));
@@ -47,6 +48,10 @@ int count_neighbors(int **arr, int row_now, int col_now){
     return counter;
 }
 
+void extreme_situation(int row_now, int col_now) {
+	
+}
+
 void action(int **arr, int **new_arr){
     for (int i = 0; i < ROW; i++){
         for (int j = 0; j < COL; j++){
@@ -71,11 +76,11 @@ void screen(int **arr){
     for(int i = 0; i < ROW; i++){
         for (int j = 0; j < COL; j++) {
             if(arr[i][j] == 0)
-                printf(" ");
+                printw(" ");
             else
-                printf("@");
+                printw("@");
         }
-        printf("\n");
+        printw("\n");
     }
 }
 
@@ -83,13 +88,19 @@ int main(void)
 {   char input;
     int **arr = create();
     arr[3][10] = 1; arr[3][11] = 1; arr[3][12] = 1; arr[2][12] = 1; arr[1][11] = 1; // GLIDER
+    //arr[4][10] = 1; arr[5][11] = 1; arr[5][12] = 1; arr[5][13] = 1; arr[5][14] = 1; arr[4][14] = 1; arr[3][14] = 1; arr[2][13] = 1;  // bus
     int **new_arr = create();
+    stdscr = initscr();
     while (input != 'q'){
+    	timeout(SPEED);
         action(arr, new_arr);
-        input = getchar();
+        input = wgetch(stdscr);
+        clear();
        	screen(new_arr);
         copy(arr, new_arr);
+        refresh();
     }
+    endwin();
     free(arr);
     free(new_arr);
     return 0;
