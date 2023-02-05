@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ncurses.h>
-#define ROW 20
+#define ROW 25
 #define COL 80
 #define SPEED 100
 
@@ -89,6 +89,8 @@ int main(void)
     int **arr = create();
     arr[3][10] = 1; arr[3][11] = 1; arr[3][12] = 1; arr[2][12] = 1; arr[1][11] = 1; // GLIDER
     //arr[4][10] = 1; arr[5][11] = 1; arr[5][12] = 1; arr[5][13] = 1; arr[5][14] = 1; arr[4][14] = 1; arr[3][14] = 1; arr[2][13] = 1;  // bus
+    arr[9][40] = 1;arr[10][39] = 1;arr[10][41] = 1;arr[11][38] = 1;arr[11][41] = 1;arr[12][39] = 1;arr[12][40] = 1;
+    arr[13][38] = 1;arr[13][41] = 1;arr[14][38] = 1;arr[14][40] = 1;arr[15][39] = 1; // karavai
     int **new_arr = create();
     stdscr = initscr();
     while (input != 'q'){
